@@ -28,9 +28,9 @@ function Main() {
   const [availableTimes, dispatch] = useReducer(timesReducer, [], initializeTimes);
 
   // Función para actualizar las horas disponibles
-  const updateTimes = (date) => {
-    const availableTimes = fetchAPI(date); // Llamar a la API con la nueva fecha
-    dispatch({ type: 'UPDATE_TIMES', payload: availableTimes });
+ const updateTimes = async (date) => {
+    const availableTimes = await fetchAPI(date); // Llamar a la API con la nueva fecha
+    dispatch({ type: 'UPDATE_TIMES', payload: availableTimes }); // Despachar la acción para actualizar el estado
   };
 
   return (
