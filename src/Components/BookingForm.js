@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 
 function BookingForm({
   date,
@@ -13,28 +14,61 @@ function BookingForm({
   handleSubmit
 }) {
   return (
-    <form style={{ display: 'grid', maxWidth: '200px', gap: '20px' }} onSubmit={handleSubmit}>
+    <form className="booking-form" onSubmit={handleSubmit}>
       <h2>Book Now</h2>
-      <label htmlFor="res-date">Choose date</label>
-      <input type="date" id="res-date" value={date} onChange={handleDateChange} />
 
-      <label htmlFor="res-time">Choose time</label>
-      <select id="res-time" value={time} onChange={handleTimeChange}>
-        {availableTimes.map((time) => (
-          <option key={time} value={time}>{time}</option>
-        ))}
-      </select>
+      <div className="form-group">
+        <label>Choose date</label>
+        <input
+          type="date"
+          value={date}
+          onChange={handleDateChange}
+          required
+        />
+      </div>
 
-      <label htmlFor="guests">Number of guests</label>
-      <input type="number" id="guests" min="1" max="10" value={guests} onChange={handleGuestsChange} />
+      <div className="form-group">
+        <label>Choose time</label>
+        <select
+          name="time"
+          value={time}
+          onChange={handleTimeChange}
+          required
+        >
+        <option value="">Select time</option>
+          {availableTimes.map((t) => (
+        <option key={t} value={t}>{t}</option>
+          ))}
+        </select>
+      </div>
 
-      <label htmlFor="occasion">Occasion</label>
-      <select id="occasion" value={occasion} onChange={handleOccasionChange}>
-        <option value="Birthday">Birthday</option>
-        <option value="Anniversary">Anniversary</option>
-      </select>
+      <div className="form-group">
+        <label>Number of guests</label>
+        <input
+          type="number"
+          name="guests"
+          min="1"
+          max="40"
+          value={guests}
+          onChange={handleGuestsChange}
+          required
+        />
+      </div>
 
-      <input type="submit" value="Make Your Reservation" />
+      <div className="form-group">
+        <label>Occasion</label>
+        <select 
+          name="occasion" 
+          value={occasion} 
+          onChange={handleOccasionChange}
+          required
+        >
+          <option>Birthday</option>
+          <option>Anniversary</option>
+        </select>
+      </div>
+
+      <button type="submit">Make Your Reservation</button>
     </form>
   );
 }

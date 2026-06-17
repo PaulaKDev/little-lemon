@@ -50,9 +50,14 @@ function BookingPage({ availableTimes, updateTimes }) {
     );
   };
 
-  return (
-    <section className="booking-page">
-      <h2>Book a Table</h2>
+  
+return (
+  <section className="booking-section">
+
+    <h2 className="booking-title">Book a Table</h2>
+
+    <div className="booking-card">
+
       <BookingForm
         date={formData.date}
         time={formData.time}
@@ -65,9 +70,19 @@ function BookingPage({ availableTimes, updateTimes }) {
         handleOccasionChange={handleOccasionChange}
         handleSubmit={handleSubmit}
       />
-      {reservationStatus && <p>{reservationStatus}</p>}
-    </section>
-  );
+
+      {reservationStatus && (
+        <div className={`reservation-status 
+      ${reservationStatus.includes('successful') ? 'success' : 'error'}`}>
+        <p>{reservationStatus}</p>
+  </div>
+)}
+
+    </div>
+
+  </section>
+);
+
 }
 
 export default BookingPage;

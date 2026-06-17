@@ -576,3 +576,85 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* SECCIÓN GENERAL */
+.booking-section {
+  background-color: #EDEFEE;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* TÍTULO */
+.booking-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+/* TARJETA */
+.booking-card {
+  background: white;
+  padding: 40px;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* MENSAJE */
+.reservation-status {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #495E57;
+}
+
+reservation-status {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #EDEFEE;
+}
+ .booking-form button {
+  align-self: center;
+  width: 220px;
+}
+
+/* MENSAJE GENERAL */
+.reservation-status {
+  margin-top: 25px;
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ÉXITO */
+.reservation-status.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+/* ERROR */
+.reservation-status.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
