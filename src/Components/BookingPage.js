@@ -24,8 +24,15 @@ function BookingPage({ availableTimes, updateTimes }) {
       date: newDate,
       time: ''
     }));
+    
 
     updateTimes(newDate);
+
+    //limpiar error de fecha
+    setErrors(prev => ({
+      ...prev,
+      date: false
+    }));
   };
 
   // ✅ CAMBIOS GENERALES
@@ -36,7 +43,14 @@ function BookingPage({ availableTimes, updateTimes }) {
       ...prev,
       [name]: name === 'guests' ? Number(value) : value
     }));
-  };
+    
+// ✅ LIMPIAR ERROR DE ESE CAMPO
+  setErrors(prev => ({
+    ...prev,
+    [name]: false
+  }));
+};
+
 
   const handleTimeChange = (e) => handleChange(e);
   const handleGuestsChange = (e) => handleChange(e);
@@ -101,11 +115,17 @@ function BookingPage({ availableTimes, updateTimes }) {
         {/* ✅ MENSAJE PRO */}
         {reservationStatus && (
           <div className={`reservation-status ${reservationStatus}`}>
+            
             {reservationStatus === 'success' ? (
-              <p>✅ Your reservation has been confirmed!</p>
+              <div className="success-box">
+                <div className="checkmark">✅</div>
+                <h3>Reservation Confirmed!</h3>
+                <p>Your table has been successfully booked.</p>
+              </div>
             ) : (
               <p>❌ Please complete all fields correctly.</p>
             )}
+
           </div>
         )}
 
