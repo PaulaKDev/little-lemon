@@ -15,21 +15,31 @@ function CustomersSay() {
 
   return (
     <section className="customers-say">
-      <div className='customers-say-header'>
+      <div className="customers-say-header">
         <h2>Testimonials</h2>
       </div>
-      <div className="testimonials-list">
-        {testimonials.map(testimonial => (
-          <div key={testimonial.id} className="testimonial-item">
-            <h3>{testimonial.name}</h3>
-            <div className="testimonial-content">
-              <img src={testimonial.image} alt={testimonial.name} className="testimonial-image" />
-              <p>{testimonial.review}</p>
-            </div>
-            <span>{'⭐'.repeat(testimonial.rating)}</span>
-          </div>
-        ))}
-      </div>
+
+      
+<div className="testimonials-list">
+  {testimonials.map((testimonial) => (
+    <div className="testimonial-item" key={testimonial.id}>
+
+      <img 
+        src={testimonial.image} 
+        alt={testimonial.name} 
+        className="testimonial-image"
+      />
+
+      <h3>{testimonial.name}</h3>
+
+      <span>{'⭐'.repeat(testimonial.rating)}</span>
+
+      <p>{testimonial.review}</p>
+
+    </div>
+  ))}
+</div>
+
     </section>
   );
 }
