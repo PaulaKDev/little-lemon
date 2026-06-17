@@ -621,11 +621,6 @@ button {
 }
 
 /* MENSAJE */
-.reservation-status {
-  margin-top: 20px;
-  font-weight: bold;
-  color: #495E57;
-}
 
 reservation-status {
   margin-top: 20px;
@@ -639,22 +634,34 @@ reservation-status {
 }
 
 /* MENSAJE GENERAL */
+
 .reservation-status {
   margin-top: 25px;
   padding: 15px;
   border-radius: 12px;
   font-weight: bold;
   text-align: center;
+  animation: fadeIn 0.4s ease;
 }
 
-/* ÉXITO */
 .reservation-status.success {
   background-color: #d4edda;
   color: #155724;
 }
 
-/* ERROR */
 .reservation-status.error {
   background-color: #f8d7da;
   color: #721c24;
+
+}
+.error-input {
+  border: 2px solid #dc3545;
+  background-color: #ffe6e6;
+}
+
+.error-text {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 4px;
+  text-align: left;
 }
